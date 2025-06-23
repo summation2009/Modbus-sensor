@@ -1,8 +1,8 @@
 # INSTALL Library ModbusMaster
 
-![Soil Temperature and Moisture sensor](https://github.com/summation2009/Modbus-sensor/blob/main/EX_TH-AD_485/INSTALL%20Library.jpg?raw=true "Screen shot")
+![INSTALL Library ModbusMaster](https://github.com/summation2009/Modbus-sensor/blob/main/EX_TH03S-485/INSTALL%20Library.jpg?raw=true "Screen shot")
 
 
-# TH-AD-485 (Temperature and Humidity Air duct)
+# TH03S-485 (Water Proof Temperature Humidity Sensor)
 
-![Temperature and Humidity Air duct](https://github.com/summation2009/Modbus-sensor/blob/main/EX_TH-AD_485/Serial%20Moniter.jpg?raw=true "Screen shot")
+![Water Proof Temperature Humidity Sensor](https://github.com/summation2009/Modbus-sensor/blob/main/EX_TH03S-485/Serial%20Moniter.jpg?raw=true "Screen shot")
