@@ -27,9 +27,9 @@ void loop()
   uint8_t result;
   int Soil_conductivity, Soil_Nitrogen, Soil_Phosphorus, Soil_Potassium;
 
-  result = myModbus.readHoldingRegisters(0, 15);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 2 รีจิสเตอร์
+  result = myModbus.readHoldingRegisters(0, 35);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 35 รีจิสเตอร์
 
-  if (result == myModbus.ku8MBSuccess) {                        // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
+  if (result == myModbus.ku8MBSuccess) {                 // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
     Soil_conductivity = myModbus.getResponseBuffer(22);    // เอาค่า Buffer 22 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_conductivity
     Soil_Nitrogen = myModbus.getResponseBuffer(31);        // เอาค่า Buffer 31 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Nitrogen
     Soil_Phosphorus = myModbus.getResponseBuffer(32);      // เอาค่า Buffer 32 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Phosphorus
