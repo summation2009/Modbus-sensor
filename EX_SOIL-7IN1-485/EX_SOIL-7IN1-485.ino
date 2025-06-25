@@ -31,13 +31,13 @@ void loop()
   result = myModbus.readHoldingRegisters(0, 35);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 35 รีจิสเตอร์
 
   if (result == myModbus.ku8MBSuccess) {                     // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
-    pH = myModbus.getResponseBuffer(7);                         // เอาค่า Buffer 7 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_salt
-    Soil_Moisture = myModbus.getResponseBuffer(19) / 10;        // เอาค่า Buffer 19 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil conductivity หารด้วย 10
-    Soil_Temperature = myModbus.getResponseBuffer(20) / 10;     // เอาค่า Buffer 20 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil conductivity หารด้วย 10
-    Soil_conductivity = myModbus.getResponseBuffer(22) / 10;    // เอาค่า Buffer 22 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_conductivity
-    Soil_Nitrogen = myModbus.getResponseBuffer(31) / 10;        // เอาค่า Buffer 31 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Nitrogen
-    Soil_Phosphorus = myModbus.getResponseBuffer(32) / 10;      // เอาค่า Buffer 32 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Phosphorus
-    Soil_Potassium = myModbus.getResponseBuffer(33) / 10;       // เอาค่า Buffer 33 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Potassium
+    pH = myModbus.getResponseBuffer(7) / 10.0;                  // เอาค่า Buffer 7 ที่อ่านจาก Modbus มาไว้ในตัวแปร pH หารด้วย 10.0
+    Soil_Moisture = myModbus.getResponseBuffer(19) / 10.0;        // เอาค่า Buffer 19 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Moisture หารด้วย 10.0
+    Soil_Temperature = myModbus.getResponseBuffer(20) / 10.0;     // เอาค่า Buffer 20 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Temperature หารด้วย 10.0
+    Soil_conductivity = myModbus.getResponseBuffer(22);         // เอาค่า Buffer 22 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_conductivity
+    Soil_Nitrogen = myModbus.getResponseBuffer(31);             // เอาค่า Buffer 31 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Nitrogen
+    Soil_Phosphorus = myModbus.getResponseBuffer(32);           // เอาค่า Buffer 32 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Phosphorus
+    Soil_Potassium = myModbus.getResponseBuffer(33) ;           // เอาค่า Buffer 33 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Potassium
 
     Serial.print (pH);                      // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0
     Serial.print (" pH");
@@ -59,7 +59,7 @@ void loop()
     Serial.print ("\t");
     Serial.print (Soil_Potassium);          // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0
     Serial.print (" mg/kg");
-    Serial.print ("\t");
+    Serial.println ("\t");
 
 
   } else {

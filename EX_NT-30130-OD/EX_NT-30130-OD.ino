@@ -27,10 +27,10 @@ void loop()
   uint8_t result;
   float Noise;
 
-  result = myModbus.readHoldingRegisters(0, 9);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 1 รีจิสเตอร์
+  result = myModbus.readHoldingRegisters(12, 2);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 1 รีจิสเตอร์
 
   if (result == myModbus.ku8MBSuccess) {               // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
-    Noise = myModbus.getResponseBuffer(0);           // เอาค่า Buffer 0 ที่อ่านจาก Modbus มาไว้ในตัวแปร Noise
+    Noise = myModbus.getResponseBuffer(12);           // เอาค่า Buffer 0 ที่อ่านจาก Modbus มาไว้ในตัวแปร Noise
 
     Serial.print (Noise);              // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0
     Serial.println (" dB");

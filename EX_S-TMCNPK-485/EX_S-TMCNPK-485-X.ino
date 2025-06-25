@@ -31,10 +31,10 @@ void loop()
   result = myModbus.readHoldingRegisters(0, 9);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 9 รีจิสเตอร์
 
   if (result == myModbus.ku8MBSuccess) {               // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
-    S_Humidity = myModbus.getResponseBuffer(0) / 10;      // เอาค่า Buffer 0 ที่อ่านจาก Modbus มาไว้ในตัวแปร S_Humidity หารด้วย 10
-    S_Temperature = myModbus.getResponseBuffer(1) / 10;   // เอาค่า Buffer 1 ที่อ่านจาก Modbus มาไว้ในตัวแปร S_Temperature หารด้วย 10
+    S_Humidity = myModbus.getResponseBuffer(0) / 10.0;      // เอาค่า Buffer 0 ที่อ่านจาก Modbus มาไว้ในตัวแปร S_Humidity หารด้วย 10.0
+    S_Temperature = myModbus.getResponseBuffer(1) / 10.0;   // เอาค่า Buffer 1 ที่อ่านจาก Modbus มาไว้ในตัวแปร S_Temperature หารด้วย 10.0
     S_Conductivity = myModbus.getResponseBuffer(2);       // เอาค่า Buffer 2 ที่อ่านจาก Modbus มาไว้ในตัวแปร S_Conductivity
-    pH = myModbus.getResponseBuffer(3) / 10;              // เอาค่า Buffer 3 ที่อ่านจาก Modbus มาไว้ในตัวแปร pH หารด้วย 10
+    pH = myModbus.getResponseBuffer(3) / 10.0;              // เอาค่า Buffer 3 ที่อ่านจาก Modbus มาไว้ในตัวแปร pH หารด้วย 10.0
     S_Nitrogen = myModbus.getResponseBuffer(4);           // เอาค่า Buffer 4 ที่อ่านจาก Modbus มาไว้ในตัวแปร S_Nitrogen
     S_Phosphorus = myModbus.getResponseBuffer(5);         // เอาค่า Buffer 5 ที่อ่านจาก Modbus มาไว้ในตัวแปร S_Phosphorus
     S_Potassium = myModbus.getResponseBuffer(6);          // เอาค่า Buffer 6 ที่อ่านจาก Modbus มาไว้ในตัวแปร S_Potassium

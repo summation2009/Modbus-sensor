@@ -31,10 +31,10 @@ void loop()
   result = myModbus.readHoldingRegisters(0, 9);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 9 รีจิสเตอร์
 
   if (result == myModbus.ku8MBSuccess) {               // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
-    Humidity = myModbus.getResponseBuffer(0) / 10;           // เอาค่า Buffer 0 ที่อ่านจาก Modbus มาไว้ในตัวแปร Humidity หารด้วย 10
-    Temperature = myModbus.getResponseBuffer(1) / 10;        // เอาค่า Buffer 1 ที่อ่านจาก Modbus มาไว้ในตัวแปร Temperature หารด้วย 10
+    Humidity = myModbus.getResponseBuffer(0) / 10.0;           // เอาค่า Buffer 0 ที่อ่านจาก Modbus มาไว้ในตัวแปร Humidity หารด้วย 10.0
+    Temperature = myModbus.getResponseBuffer(1) / 10.0;        // เอาค่า Buffer 1 ที่อ่านจาก Modbus มาไว้ในตัวแปร Temperature หารด้วย 10.0
     CO2 = myModbus.getResponseBuffer(5);                     // เอาค่า Buffer 5 ที่อ่านจาก Modbus มาไว้ในตัวแปร CO2
-    Illumination = myModbus.getResponseBuffer(7);            // เอาค่า Buffer 8 ที่อ่านจาก Modbus มาไว้ในตัวแปร Illumination
+    Illumination = myModbus.getResponseBuffer(7);            // เอาค่า Buffer 7 ที่อ่านจาก Modbus มาไว้ในตัวแปร Illumination
 
     Serial.print (Humidity);              // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0
     Serial.print (" %RH");
@@ -42,7 +42,7 @@ void loop()
     Serial.print (Temperature);           // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0
     Serial.print (" *C");
     Serial.print ("\t");
-    Serial.print (CO2);           // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0
+    Serial.print (CO2);                   // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0
     Serial.print (" ppm");
     Serial.print ("\t");
     Serial.print (Illumination);          // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0

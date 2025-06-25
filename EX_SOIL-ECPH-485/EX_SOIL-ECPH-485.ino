@@ -28,10 +28,10 @@ void loop()
   float pH
   int Soil conductivity;
 
-  result = myModbus.readHoldingRegisters(0, 24);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 24 รีจิสเตอร์
+  result = myModbus.readHoldingRegisters(0, 23);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 23 รีจิสเตอร์
 
   if (result == myModbus.ku8MBSuccess) {          // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
-    pH = myModbus.getResponseBuffer(7);                     // เอาค่า Buffer 7 ที่อ่านจาก Modbus มาไว้ในตัวแปร pH
+    pH = myModbus.getResponseBuffer(7) / 10.0;                // เอาค่า Buffer 7 ที่อ่านจาก Modbus มาไว้ในตัวแปร pH หารด้วย 10.0
     Soil conductivity = myModbus.getResponseBuffer(22);     // เอาค่า Buffer 22 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil conductivity
 
     Serial.print (pH);                        // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0

@@ -31,8 +31,8 @@ void loop()
   result = myModbus.readHoldingRegisters(0, 6);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 6 รีจิสเตอร์
 
   if (result == myModbus.ku8MBSuccess) {               // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
-    Humidity = myModbus.getResponseBuffer(0) / 10;           // เอาค่า Buffer 0 ที่อ่านจาก Modbus มาไว้ในตัวแปร Humidity หารด้วย 10
-    Temperature = myModbus.getResponseBuffer(1) / 10;        // เอาค่า Buffer 1 ที่อ่านจาก Modbus มาไว้ในตัวแปร Temperature หารด้วย 10
+    Humidity = myModbus.getResponseBuffer(0) / 10.0;           // เอาค่า Buffer 0 ที่อ่านจาก Modbus มาไว้ในตัวแปร Humidity หารด้วย 10.0
+    Temperature = myModbus.getResponseBuffer(1) / 10.0;        // เอาค่า Buffer 1 ที่อ่านจาก Modbus มาไว้ในตัวแปร Temperature หารด้วย 10.0
     PM_1 = myModbus.getResponseBuffer(2);                    // เอาค่า Buffer 2 ที่อ่านจาก Modbus มาไว้ในตัวแปร PM1
     PM_25 = myModbus.getResponseBuffer(3);                   // เอาค่า Buffer 3 ที่อ่านจาก Modbus มาไว้ในตัวแปร PM2.5
     PM_10 = myModbus.getResponseBuffer(4);                   // เอาค่า Buffer 4 ที่อ่านจาก Modbus มาไว้ในตัวแปร PM10

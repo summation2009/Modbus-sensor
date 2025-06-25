@@ -31,8 +31,8 @@ void loop()
   result = myModbus.readHoldingRegisters(500, 505);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 500, เป็นจำนวน 505 รีจิสเตอร์
 
   if (result == myModbus.ku8MBSuccess) {               // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
-    Humidity = myModbus.getResponseBuffer(500) / 10;           // เอาค่า Buffer 500 ที่อ่านจาก Modbus มาไว้ในตัวแปร Humidity หารด้วย 10
-    Temperature = myModbus.getResponseBuffer(501) / 10;        // เอาค่า Buffer 501 ที่อ่านจาก Modbus มาไว้ในตัวแปร Temperature หารด้วย 10
+    Humidity = myModbus.getResponseBuffer(500) / 10.0;        // เอาค่า Buffer 500 ที่อ่านจาก Modbus มาไว้ในตัวแปร Humidity หารด้วย 10
+    Temperature = myModbus.getResponseBuffer(501) / 10.0;     // เอาค่า Buffer 501 ที่อ่านจาก Modbus มาไว้ในตัวแปร Temperature หารด้วย 10
     Noise = myModbus.getResponseBuffer(502);                  // เอาค่า Buffer 502 ที่อ่านจาก Modbus มาไว้ในตัวแปร Noise
     PM_25 = myModbus.getResponseBuffer(503);                  // เอาค่า Buffer 503 ที่อ่านจาก Modbus มาไว้ในตัวแปร PM2.5
     PM_10 = myModbus.getResponseBuffer(504);                  // เอาค่า Buffer 504 ที่อ่านจาก Modbus มาไว้ในตัวแปร PM10

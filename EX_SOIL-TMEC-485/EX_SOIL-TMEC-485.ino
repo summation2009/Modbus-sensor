@@ -28,12 +28,12 @@ void loop()
   float Soil_Moisture, Soil_Temperature;
   int Soil_conductivity;
 
-  result = myModbus.readHoldingRegisters(0, 23);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 0, เป็นจำนวน 23 รีจิสเตอร์
+  result = myModbus.readHoldingRegisters(18, 23);   // เริ่มอ่านค่าที่ตำแหน่งรีจิสเตอร์ 18, เป็นจำนวน 10 รีจิสเตอร์
 
   if (result == myModbus.ku8MBSuccess) {                    // หากสำเร็จ เซนเซอร์ตอบกลับ และไม่มีผิดพลาด
-    Soil_Moisture = myModbus.getResponseBuffer(19) / 10;        // เอาค่า Buffer 19 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil conductivity หารด้วย 10
-    Soil_Temperature = myModbus.getResponseBuffer(20) / 10;     // เอาค่า Buffer 20 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil conductivity หารด้วย 10
-    Soil_conductivity = myModbus.getResponseBuffer(22) / 10;    // เอาค่า Buffer 22 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_conductivity
+    Soil_Moisture = myModbus.getResponseBuffer(19) / 10.0;        // เอาค่า Buffer 19 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Moisture หารด้วย 10.0
+    Soil_Temperature = myModbus.getResponseBuffer(20) / 10.0;     // เอาค่า Buffer 20 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_Temperature หารด้วย 10.0
+    Soil_conductivity = myModbus.getResponseBuffer(22);           // เอาค่า Buffer 22 ที่อ่านจาก Modbus มาไว้ในตัวแปร Soil_conductivity
 
     Serial.print (Soil_Moisture);           // นำค่าที่อ่านได้ พิมพ์ออกทาง Serial0
     Serial.print (" %RH");
